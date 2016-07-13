@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #coding=utf-8
-""" 
+"""
 This program is for getting the steam price.
 """
 __author__ = "707<707472783@qq.com>"
@@ -11,10 +11,10 @@ from bs4 import BeautifulSoup
 
 # 获取页数
 def getPage():
-    # 构造链接 
+    # 构造链接
     url = 'http://store.steampowered.com/search/?%s'
     params = urllib.urlencode({'specials':1, 'sort_by':'Name_ASC', 'page': 1})
-    
+
     # 获取数据
     f = urllib.urlopen(url % params)
     html = f.read()
@@ -36,10 +36,6 @@ def get(page):
     # 请求数据
     f = urllib.urlopen(url % params)
     html = f.read()
-
-    # 将网页信息写入文件
-    with open('price.html', 'w') as f:
-        f.write(html)
 
     # 游戏名
     name_list = []
@@ -74,7 +70,7 @@ def get(page):
         print row.span.string, price, review
 
 
-   
+
 
 if __name__ == '__main__':
     page = getPage()
@@ -84,6 +80,4 @@ if __name__ == '__main__':
                 get(i+1)
                 break
             except Exception, e:
-                print "********************************" + str(i)
                 print e
-
