@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 #coding=utf-8
+__author__ = "707<707472783@qq.com>"
 """
 This program is for getting the steam price.
 """
-__author__ = "707<707472783@qq.com>"
 
 import urllib
 import re
